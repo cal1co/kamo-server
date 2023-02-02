@@ -2,16 +2,20 @@ package com.kamo.kamouser;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.kamo.friends.KamoFriend;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,11 +40,19 @@ public class KamoUser implements UserDetails {
     private String username;
     private String email;
     private String password;
+
+    @OneToMany(mappedBy="user1")
+    private List<KamoFriend> friends;
     
     @Enumerated(EnumType.STRING)
     private KamoUserRole kamoUserRole;
 
-    public KamoUser(String username, String name, String email, String password, KamoUserRole kamoUserRole) {
+    public KamoUser(
+            String username, 
+            String name, 
+            String email, 
+            String password, 
+            KamoUserRole kamoUserRole) {
         this.username = username;
         this.email = email;
         this.password = password;

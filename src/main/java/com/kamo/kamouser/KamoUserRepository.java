@@ -11,5 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 public interface KamoUserRepository extends JpaRepository<KamoUser, Integer> {
 
     Optional<KamoUser> findByEmail(String email);
+    Optional<KamoUser> findByUsername(String email);
 
 }

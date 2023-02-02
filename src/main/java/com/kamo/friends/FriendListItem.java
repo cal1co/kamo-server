@@ -1,4 +1,4 @@
-package com.kamo.authentication;
+package com.kamo.friends;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequest {
-    private String email;
+public class FriendListItem {
+    private Integer Id;
     private String username;
-    String password;
-};
+}
